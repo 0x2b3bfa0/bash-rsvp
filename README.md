@@ -3,9 +3,7 @@
 
 https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation
 
-***
-
-ToDo:
+#### To Do:
 
 - [ ] Improve argument parsing
 - [ ] Add an option to set the time between words
