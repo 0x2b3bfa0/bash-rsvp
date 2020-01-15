@@ -1,49 +1,49 @@
 #!/bin/bash
 
-## When the program is interrupted, call the cleanup function
+# Connect the cleanup function to the usual signals
 trap "cleanup; exit" SIGHUP SIGINT SIGTERM
 
-## Check if file exists
+# Check if the file exists
 [ -f "$1" ] || echo "File not found!" || exit
 
 function cleanup() {
-    ## Restores the screen content
+    # Restore the screen content
     tput rmcup
 
-    ## Makes the cursor visible again
+    # Make the cursor visible again
     tput cvvis
 }
 
-## Saves the screen contents
+# Save the screen contents
 tput smcup
 
-## Loop over all words
+# Loop over all words
 while read line
 do
-    ## Gets terminal width and height
+    ## Get viewport width and height
     height=$(tput lines)
     width=$(tput cols)
 
-    ## Gets the length of the current word
+    # Get the length of the current word
     line_length=${#line}
 
-    ## Clears the screen
+    # Clear the screen
     clear
 
-    ## Puts the cursor on the middle of the terminal (a bit more to the left, to center the word)
+    # Put the cursor on the middle of the terminal (a bit more to the left, to center the word)
     tput cup "$((height/2))" "$((($width-$line_length)/2))"
 
-    ## Hides the cursor
+    # Hide the cursor
     tput civis
 
-    ## Prints the word
+    # Print the word
     printf "$line"
 
-    ## Sleeps one second
+    # Sleep one second
     sleep 1
 
-## Passes the words separated by a newline to the loop
+# Pass the words separated by a newline to the loop
 done < <(tr ' ' '\n' < "$1")
 
-## When the program ends, call the cleanup function
+# Call the cleanup function
 cleanup
