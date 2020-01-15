@@ -1,12 +1,12 @@
 # bash-rsvp
-#### Displays a text file word by word centered on the screen
+Simple command-line program for displaying a text file word by word, centered on the screen.
 
 https://en.wikipedia.org/wiki/Rapid_serial_visual_presentation
 
-## To Do:
+## Next features:
 
 - [ ] Improve argument parsing
 - [ ] Add an option to set the time between words
-- [ ] Add an option to set the acceleration of the time between words
+- [ ] Add an option to set the acceleration between words
 - [ ] Create a funtion that detects dots and commas in the words
-- [ ] Add an option to set an additinal delay between words that end in dot or comma.
+- [ ] Add an option to set an additional delay between words that end in dot or comma
